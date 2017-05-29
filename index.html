@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Bootstrap CSS link-->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  <!--Local CSS stylesheet-->
+  <link style="text/css" rel="stylesheet" href="style.css" />
+
+  <title>SG-WDI-10 Project 1 (Memory Game)</title>
+</head>
+
+<body class="container-fluid">
+
+  <header class="row">
+    <div class="row col-md-6 col-md-offset-3 intro">
+    <h2>Memory Game</h2>
+    <p> Two player will take turns selecting pairs of cards from a spread.The person who gets the most matches in 30s wins.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="row">
+      <div class="row col-md-3 player1">
+        <h3>Player 1</h3>
+        <div><span>Score :</span><span id="score1">""</span></div>
+      </div>
+      <div class="row main col-md-6">
+        <div id="game-board"></div>
+      </div>
+      <div class="row col-md-3 player2">
+        <h3>Player 2</h3>
+        <div><span>Score :</span><span id="score2">""</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+        <div class="row col-md-2 col-md-offset-5 bottom">
+          <div id="start">Start</div>
+          <div id="reset">Reset</div>
+        </div>
+    </div>
+  </section>
+
+  <footer></footer>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!--Local Javascript-->
+  <script src="Javascript.js"></script>
+
+</body>
+</html>

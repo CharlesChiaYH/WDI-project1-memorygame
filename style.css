@@ -1,0 +1,89 @@
+
+body{
+  background-color: grey;
+  font-family: sans-serif;
+}
+
+.intro{
+padding: 0 0;
+text-align: center;
+}
+
+h2{
+font-weight: bold;
+font-size: 80px;
+}
+
+body p{
+  font-size: 30px;
+}
+.intro{
+  margin-left: 390px;
+}
+
+.player1{
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 0;
+}
+.player1 h3{
+  font-size: 30px;
+  font-weight: bold;
+}
+.player1 span{
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.player2{
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 0px;
+}
+
+.player2 h3{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.player2 span{
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+/* styling for game-board*/
+div#game-board{
+/*border:2px solid black;*/
+
+height:300px;
+padding-left: 30px;
+padding-right: 10px;
+margin:50px 10px;
+align-items: center;
+}
+div#game-board > div{
+background-color: white;
+border:#000 1px solid;
+width:71px;
+height:71px;
+float: left;
+margin:10px;
+padding:20px;
+font-size:64px;
+cursor:pointer;
+text-align:center;
+}
+section .bottom{
+text-align: center;
+font-weight: bold;
+font-size: 20px;
+border: 1px solid black;
+}
+.bottom #start{
+  background-color: white;
+  color: black;
+}
+.bottom #reset{
+  background-color: black;
+  color: white;
+}
