@@ -7,18 +7,23 @@
   <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
   <!--Local CSS stylesheet-->
-  <link style="text/css" rel="stylesheet" href="style.css" />
+  <link type="text/css" rel="stylesheet" href="style.css" />
 
   <title>SG-WDI-10 Project 1 (Memory Game)</title>
 </head>
 
-<body class="container-fluid">
+<body>
+<div class="container">
 
-  <header class="row">
-    <div class="row col-md-6 col-md-offset-3 intro">
-    <h2>Memory Game</h2>
-    <p> Two player will take turns selecting pairs of cards from a spread.The person who gets the most matches in 30s wins.</p>
+  <header>
+    <div class="row">
+    <div class="row col-md-3"></div>
+    <div class="row col-md-6">
+      <h2>Memory Game</h2>
+      <p> Two player will take turns selecting pairs of cards from a spread whilst a 30 second counter runs.</br>The player who gets the most matches in this 30 seconds wins.</p>
     </div>
+    <div class="row col-md-3"></div>
+  </div>
   </header>
 
   <section>
@@ -27,8 +32,8 @@
         <h3>Player 1</h3>
         <div><span>Score :</span><span id="score1">""</span></div>
       </div>
-      <div class="row main col-md-6">
-        <div id="game-board"></div>
+      <div class="row col-md-6 main">
+        <div id="memory_board"></div>
       </div>
       <div class="row col-md-3 player2">
         <h3>Player 2</h3>
@@ -39,10 +44,21 @@
 
   <section>
     <div class="row">
-        <div class="row col-md-2 col-md-offset-5 bottom">
-          <div id="start">Start</div>
-          <div id="reset">Reset</div>
+      <div class="row col-md-3"></div>
+        <div class="row col-md-6 time">
+          <span id="timer">Timer</span>
         </div>
+        <div class="row col-md-3"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="row col-md-5 bottom"></div>
+        <div class="row col-md-2 bottom">
+          <div id="start">Start</div>
+        </div>
+        <div class="row col-md-5 bottom"></div>
     </div>
   </section>
 
@@ -54,7 +70,7 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <!--Local Javascript-->
-  <script src="Javascript.js"></script>
-
+  <script src="script.js"></script>
+</div>
 </body>
 </html>

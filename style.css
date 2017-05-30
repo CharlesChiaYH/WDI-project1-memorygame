@@ -4,27 +4,22 @@ body{
   font-family: sans-serif;
 }
 
-.intro{
-padding: 0 0;
+h2{
+font-weight: bold;
+font-size: 60px;
 text-align: center;
 }
 
-h2{
-font-weight: bold;
-font-size: 80px;
+body p{
+  font-size: 18px;
+  text-align: center;
 }
 
-body p{
-  font-size: 30px;
-}
-.intro{
-  margin-left: 390px;
-}
 
 .player1{
   text-align: center;
   margin-top: 50px;
-  margin-right: 0;
+
 }
 .player1 h3{
   font-size: 30px;
@@ -38,7 +33,6 @@ body p{
 .player2{
   text-align: center;
   margin-top: 50px;
-  margin-left: 0px;
 }
 
 .player2 h3{
@@ -51,39 +45,45 @@ body p{
   text-decoration: underline;
 }
 
-/* styling for game-board*/
-div#game-board{
-/*border:2px solid black;*/
+section .time{
+  align-items: center;
+  text-align: center;
+  height: 50px;
+}
 
-height:300px;
-padding-left: 30px;
-padding-right: 10px;
-margin:50px 10px;
-align-items: center;
+div #memory_board{
+	width:585px;
+	height:500px;
+	padding-left: 15px;
+  padding-right: 10px;
+	margin-top: 40px;
 }
-div#game-board > div{
-background-color: white;
-border:#000 1px solid;
-width:71px;
-height:71px;
-float: left;
-margin:10px;
-padding:20px;
-font-size:64px;
-cursor:pointer;
-text-align:center;
+div #memory_board > div{
+	background-image: url("tile_bg.jpg");
+  background-repeat: no-repeat;
+	border:#000 1px solid;
+	width:70px;
+	height:70px;
+	float:left;
+	margin:10px;
+	padding:20px;
+	font-size:25px;
+	cursor:pointer;
+	text-align:center;
 }
+
 section .bottom{
 text-align: center;
 font-weight: bold;
 font-size: 20px;
-border: 1px solid black;
+}
+
+section #timer{
+  font-size: 30px;
+  font-weight: bold;
 }
 .bottom #start{
   background-color: white;
   color: black;
-}
-.bottom #reset{
-  background-color: black;
-  color: white;
+  cursor:pointer;
 }
