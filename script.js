@@ -1,47 +1,24 @@
 window.onload = function () {
-    //Global variables for tile randomizer//
+    //Global variables for tile randomizer and flipping//
     var memory_array = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L'];
     var memory_values = [];
     var memory_tile_ids = [];
     var tiles_flipped = 0;
+    var match = false;
+    var doubleflip = false; //controls ouput of message for player turns//
 
-    //Countdown Timer global variables//
+    //Global variables for countdown timer//
     var timeLeft = 30;
     var elem = document.getElementById('timer');
     var timer;
+    //var clock= new Audio()
 
-    //Global variables for turn counter and player scores//
-    /*var p1 = 0 //document.getElementById('score1') - update innerHTML;//
-    var p2 = 0 //document.getElementById('score2') - update innerHTML;//
-    var turn = 1;//
+    //Global variables for score tracking//
+    var p1 = 0;
+    var p2 = 0;
+    var counter = 1;
 
-    function scoring(){
-    if (turn %2 !== 0){
-        1)run tile flipping function
-          1a)if memory_values[0] = memory_values[1], p1 ++, and update into html
-          1b)turn ++
-          1c)alert message that it is player 2 turn
-          1d)if memory_values [0] !== memory_values[1], no change to p1
-          1e)alert message that it is player 2 turn
-          1f) turn ++
-      }else if (turn %2 ==0){
-        2)
-          2a)if memory_values[0] = memory_values[1], p2 ++, and update into html
-          2b)turn ++
-          2c)alert message that it is player 1 turn
-          2d)if memory_values [0] !== memory_values[1], no change to p2
-          2e)alert message that it is player 1 turn
-          2f) turn ++
-        }
-    }
-    Exit condition when timer ==0
-    or when tiles flipped = memory_array.length
-    if p1>p2
-    alert message (player 1 wins)
-    else
-    alert message (player 2 wins)
-    after clicking alert message for either player's win, windows.location.reload()
-    */
+
 
     //Function to randomize tile array. Reference: Fisher-Yates shuffle algorithm//
     Array.prototype.memory_tile_shuffle = function () {
@@ -75,6 +52,10 @@ window.onload = function () {
                 return function () {
                     console.log('you clicked on : ' + n);
                     memoryFlipTile(this, memory_array[n]);
+                    if(doubleflip){
+                      scoring();
+                      doubleflip=false
+                    }
                 };
             })(i);
             document.getElementById('memory_board').appendChild(newDiv);
@@ -97,6 +78,7 @@ window.onload = function () {
                 memory_values.push(val);
                 memory_tile_ids.push(tile.id);
                 if (memory_values[0] === memory_values[1]){ //check for matching tiles//
+                    match = true;
                     tiles_flipped += 2;
                     // Clear both arrays
                     memory_values = [];
@@ -107,13 +89,17 @@ window.onload = function () {
                         document.getElementById('memory_board').innerHTML = "";
                         newBoard();
                     }
+                  doubleflip = true;
                 }
                 else {
                     setTimeout(flip2Back, 700);
+                    match = false;
+                    doubleflip =  true;
                 }
             }
         }
-    }
+    }//end of fliptile function
+
     //Flip the 2 tiles back over//
     function flip2Back() {
         var tile_1 = document.getElementById(memory_tile_ids[0]);
@@ -125,6 +111,7 @@ window.onload = function () {
         // Clear both arrays when no match//
         memory_values = [];
         memory_tile_ids = [];
+
     }
 
     //Timer stop function - called from Countdown function//
@@ -136,26 +123,61 @@ window.onload = function () {
       }
     }
 
-    //Countdown function - called when Onclick for start button//
+    //Countdown function - called when "onclick" for start button//
     function countdown(){
       if (timeLeft == 0){
-        document.getElementById('memory_board').innerHTML = "";
-        //elem.innerHTML = 0 + ' seconds left';
+        if (p1>p2){
+          alert("Player 1 wins!");
+        }else if (p2>p1){
+          alert("Player 2 wins!");
+        }else{
+          alert("It's a tie!");
+        }
+        document.getElementById('memory_board').innerHTML = ""; //clears the grid//
         myStopFunction();
-        elem.innerHTML = "";
+        elem.innerHTML = "";//elem.innerHTML = 0 + ' seconds left';
         }
         else {
         timeLeft--;
         document.getElementById('start').innerHTML = "";
         elem.innerHTML = timeLeft + ' seconds left';
-        }
+      }
     }
 
-    //Onclick function to start game//
-    //Populates grid and starts timer//
+    //score tracking function//
+    function scoring(){
+
+      if(counter %2 !== 0 && match == true){ //As counter starts globally at 1, modulus will not give zero, hence Player 1 starts//
+        p1++;
+        counter++;
+        document.getElementById('score1').innerHTML = p1;
+        document.getElementById('message').innerHTML = "Player 2 turn";
+        document.getElementById('message').style.color = "red";
+      }else if(counter %2 !== 0 && match == false){
+        document.getElementById('message').innerHTML = "Player 2 turn";
+        document.getElementById('message').style.color = "red";
+        counter++;
+      }else if(counter %2 === 0 && match == true){
+        p2++;
+        counter++;
+        document.getElementById('score2').innerHTML = p2;
+        document.getElementById('message').innerHTML = "Player 1 turn";
+        document.getElementById('message').style.color = "blue";
+      }else {
+        document.getElementById('message').innerHTML = "Player 1 turn";
+        document.getElementById('message').style.color = "blue";
+        counter++;
+      }
+
+    }
+
+    //Onclick function to start game - populates grid and starts counter//
     document.getElementById('start').onclick = function(){
       newBoard();
-      timer = setInterval(countdown, 500);
+      timer = setInterval(countdown, 1000);
+      //displays "Player 1 turn" at start of game//
+      document.getElementById('message').innerHTML = "Player 1 turn";
+      document.getElementById('message').style.color = "blue";
     }
 
 } //End of windows.onload curly brace//

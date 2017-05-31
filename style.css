@@ -1,7 +1,15 @@
 
 body{
-  background-color: grey;
+  background: rgba(255,255,0, .4);
   font-family: sans-serif;
+  back
+}
+
+header img{
+  margin-top: 20px;
+  margin-left: 65px;
+  height: 150px;
+  width: 150px;
 }
 
 h2{
@@ -12,7 +20,9 @@ text-align: center;
 
 body p{
   font-size: 18px;
-  text-align: center;
+  text-align: justify;
+  font-weight: bold;
+
 }
 
 
@@ -24,6 +34,7 @@ body p{
 .player1 h3{
   font-size: 30px;
   font-weight: bold;
+  color: blue;
 }
 .player1 span{
   font-size: 25px;
@@ -38,6 +49,7 @@ body p{
 .player2 h3{
   font-size: 30px;
   font-weight: bold;
+  color: red;
 }
 
 .player2 span{
@@ -78,11 +90,19 @@ font-weight: bold;
 font-size: 20px;
 }
 
+section #message{
+  font-size: 40px;
+  font-weight: bold;
+}
+
 section #timer{
   font-size: 30px;
   font-weight: bold;
 }
+
 .bottom #start{
+  margin-top: 80px;
+  font-weight: bold;
   background-color: white;
   color: black;
   cursor:pointer;
