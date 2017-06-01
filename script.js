@@ -13,15 +13,11 @@ window.onload = function () {
     var timer;
     var tick = new Audio('./juice/timerTick.mp3');
     var timeUp = new Audio('./juice/timeup.mp3');
-    var tie = new Audio('./juice/tie.mp3');
-
 
     //Global variables for score tracking//
     var p1 = 0;
     var p2 = 0;
     var counter = 1;
-
-
 
     //Function to randomize tile array. Reference: Fisher-Yates shuffle algorithm//
     Array.prototype.memory_tile_shuffle = function () {
@@ -116,7 +112,6 @@ window.onload = function () {
         // Clear both arrays when no match//
         memory_values = [];
         memory_tile_ids = [];
-
     }
 
     //Timer stop function - called from Countdown function//
@@ -153,7 +148,6 @@ window.onload = function () {
 
     //score tracking function//
     function scoring(){
-
       if(counter %2 !== 0 && match == true){ //As counter starts globally at 1, modulus will not give zero, hence Player 1 starts//
         p1++;
         counter++;
@@ -175,7 +169,6 @@ window.onload = function () {
         document.getElementById('message').style.color = "blue";
         counter++;
       }
-
     }
 
     //Onclick function to start game - populates grid and starts counter//
@@ -187,16 +180,5 @@ window.onload = function () {
       document.getElementById('message').style.color = "blue";
     }
 
-    //function timerTick(){
-    //  var tick = new Audio ('./juice/timerTick.mp3');
-    //}
-
-    //function timeUp(){
-    //
-    //}
-
-  //  function cheer(){
-
-    //}
 
 } //End of windows.onload curly brace//
