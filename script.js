@@ -11,7 +11,10 @@ window.onload = function () {
     var timeLeft = 30;
     var elem = document.getElementById('timer');
     var timer;
-    //var clock= new Audio()
+    var tick = new Audio('./juice/timerTick.mp3');
+    var timeUp = new Audio('./juice/timeup.mp3');
+    var tie = new Audio('./juice/tie.mp3');
+
 
     //Global variables for score tracking//
     var p1 = 0;
@@ -53,7 +56,7 @@ window.onload = function () {
                     console.log('you clicked on : ' + n);
                     memoryFlipTile(this, memory_array[n]);
                     if(doubleflip){
-                      scoring();
+                      scoring(); //calls the function for Scoring//
                       doubleflip=false
                     }
                 };
@@ -104,9 +107,11 @@ window.onload = function () {
     function flip2Back() {
         var tile_1 = document.getElementById(memory_tile_ids[0]);
         var tile_2 = document.getElementById(memory_tile_ids[1]);
-        tile_1.style.background = 'url("tile_bg.jpg") no-repeat';
+        tile_1.style.background = 'url("./juice/tile_bg.jpg") no-repeat';
+        tile_1.style.backgroundSize = 'contain';
         tile_1.innerHTML = "";
-        tile_2.style.background = 'url("tile_bg.jpg") no-repeat';
+        tile_2.style.background = 'url("./juice/tile_bg.jpg") no-repeat';
+        tile_2.style.backgroundSize = 'contain';
         tile_2.innerHTML = "";
         // Clear both arrays when no match//
         memory_values = [];
@@ -126,6 +131,7 @@ window.onload = function () {
     //Countdown function - called when "onclick" for start button//
     function countdown(){
       if (timeLeft == 0){
+        timeUp.play(); //plays timeup sound//
         if (p1>p2){
           alert("Player 1 wins!");
         }else if (p2>p1){
@@ -141,6 +147,7 @@ window.onload = function () {
         timeLeft--;
         document.getElementById('start').innerHTML = "";
         elem.innerHTML = timeLeft + ' seconds left';
+        tick.play(); //plays ticking sounds during timer countdown - global variable//
       }
     }
 
@@ -179,5 +186,17 @@ window.onload = function () {
       document.getElementById('message').innerHTML = "Player 1 turn";
       document.getElementById('message').style.color = "blue";
     }
+
+    //function timerTick(){
+    //  var tick = new Audio ('./juice/timerTick.mp3');
+    //}
+
+    //function timeUp(){
+    //
+    //}
+
+  //  function cheer(){
+
+    //}
 
 } //End of windows.onload curly brace//
