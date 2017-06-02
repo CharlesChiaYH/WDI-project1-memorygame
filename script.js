@@ -49,7 +49,7 @@ window.onload = function () {
 
             newDiv.onclick = (function (n) {
                 return function () {
-                    console.log('you clicked on : ' + n);
+                    //console.log('you clicked on : ' + n); for tracking in console//
                     memoryFlipTile(this, memory_array[n]);
                     if(doubleflip){
                       scoring(); //calls the function for Scoring//
@@ -63,15 +63,15 @@ window.onload = function () {
 
     //Function to flip tile in grid//
     function memoryFlipTile(tile, val) {
-        console.log(tile);
-        console.log(val);
+        //console.log(tile); for tracking in console//
+        //console.log(val); for tracing in console//
         if (tile.innerHTML === "" && memory_values.length < 2) {
             tile.style.background = '#FFF';
             tile.innerHTML = val;
             if (memory_values.length === 0) {
                 memory_values.push(val);
                 memory_tile_ids.push(tile.id);
-                console.log(tile.id);
+                //console.log(tile.id); //for tracking in console//
             }
             else if (memory_values.length === 1) {
                 memory_values.push(val);
